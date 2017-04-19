@@ -8,6 +8,9 @@
     body{
     font-family: courier new, courier; 
     font-size: 12px; 
+		background-color: black;
+		padding: 0px;
+		margin: 0px;
 	}
 	.draggable{
 		display: inline-block; 
@@ -16,9 +19,8 @@
 		width:30px;
 		height:30px;
 		position: absolute;
-	background-color:black;		
+	background-color:orange;		
 	}
-
 	.guide{
 		display: none; 
 		position: absolute; 
@@ -35,22 +37,61 @@
 		border-left: 1px dashed #55f; 
 		height: 100%; 
 	}
-	.plane{
+	#plane{
+		width: 480px;
+		height: 800px;
+		background-color: white;
+		overflow:visible;
+	}
+	  	#position{
+		width: 460px;
+		background-color: red;
+			color: white;
+			padding: 10px;
+			
 		
 	}
+	  #guideH
+	  {
+		  width: 480px;
+		height: 0px;
+		  
+	  
+	  }
+	  	  #guideV
+	  {
+		  width: 0px;
+		height: 800px;
+	  }
+	#workPlane
+	  {
+		  width: 480px;
+		  float: left;
+	  }
+	  #tools
+	  {
+		  width: 120px;
+		  background-color:darkred;
+		  padding: 10px;
+		  float: left;
+	  }
   </style>
-<button onClick="ekle()">ekle</button>
+
 
 <script type="text/javascript">
 function ekle()
 	{
-		$("#plane").append("<div class='draggable' onDblClick='position_()'></div>");
+		$("#plane").append("<div class='draggable' onDblClick='position_(this)'></div>");
 		align();
 	}
-	function position_(){
+	function position_(e){
     //var x = this.position();
-		console.log(this);
-    alert(this);
+		console.log(e.style.left);
+		var x1=e.style.top;
+		var x=parseInt(x1.substring(0, x1.length -2))-35+15;
+		var y1=e.style.left;
+		var y=parseInt(y1.substring(0, y1.length -2))+15;
+    $("#position").html("Position X:"+x+" Y:"+y);
 }
 //<![CDATA[
 function align(){
@@ -58,8 +99,7 @@ function align(){
 var MIN_DISTANCE = 10; // minimum distance to "snap" to a guide
 var guides = []; // no guides available ... 
 var innerOffsetX, innerOffsetY; // we'll use those during drag ... 
-
-
+	
 $( ".draggable" ).draggable({
     start: function( event, ui ) {
         guides = $.map( $( ".draggable" ).not( this ), computeGuidesForElement );
@@ -138,10 +178,16 @@ function computeGuidesForElement( elem, pos, w, h ){
 </script>
 </head>
 	<body>
-		<div id="plane">
-		
+		<div id="workPlane">
+			<div id="position">Position</div>
+			<div id="guideH" class="draggable"></div>
+			<div id="guideV" class="draggable"></div>
+			<div id="plane" class="div"></div>
+			<div id="guide-h" class="guide"></div>
+			<div id="guide-v" class="guide"></div>
 		</div>
-		<div id="guide-h" class="guide"></div>
-		<div id="guide-v" class="guide"></div>
+		<div id="tools">
+			<button onClick="ekle()">ekle</button>
+		</div>
 	</body>
 </html>
