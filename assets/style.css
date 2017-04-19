@@ -1,0 +1,80 @@
+body{
+   	font-family: courier new, courier; 
+   	font-size: 12px; 
+	background-color: black;
+	padding: 0px;
+	margin: 0px;
+}
+.draggable{
+	display: inline-block; 
+	cursor: move;
+	border-radius:30px;
+	width:30px;
+	height:30px;
+	position: absolute;
+	background-color:orange;		
+}
+.guide{
+	display: none; 
+	position: absolute; 
+	left: 0; 
+	top: 0; 
+}
+#guide-h{
+	border-top: 1px dashed #55f; 
+	width: 100%; 
+}
+#guide-v{
+   border-left: 1px dashed #55f; 
+   height: 100%; 
+}
+#plane{
+   width: 480px;
+   height: 800px;
+   background-color: white;
+   overflow:visible;
+}
+#position{
+   background-color: red;
+   color: white;
+   padding: 10px;
+   height: 15px;
+   padding: 10px;
+}
+#guideH
+{
+	width: 480px;
+	height: 0px;  
+}
+#guideV
+{
+	width: 0px;
+	height: 800px;
+}
+#workPlane
+{
+	width: 480px;
+	float: left;
+}
+#tools
+{
+	width: 500px;
+	background-color:darkred;
+	padding: 10px;
+	float: left;
+	color: white;
+}
+#pos1
+{
+	float: left;
+}
+#posTool
+{
+	width: 120px;
+	float: right;
+}
+input
+{
+	width: 100%;
+		  
+}
